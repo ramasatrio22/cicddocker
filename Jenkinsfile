@@ -17,7 +17,7 @@ dockerImage.pull()'''
 
     stage('Deploy') {
       steps {
-        sh '''sh \'\'\'
+        sh '''
 					set +e
                         SECRET=dckr_pat_5UhfAjy_FWjE5CwFynmHS8v8rOM
 	                    echo "$SECRET" | docker login --username praboworama --password-stdin
@@ -36,7 +36,7 @@ dockerImage.pull()'''
 							docker build -t server /var/lib/jenkins/workspace/dockerpipeline
 							docker run --name server -d -p 9090:80 server
                         fi
-					\'\'\''''
+				'''
       }
     }
 
